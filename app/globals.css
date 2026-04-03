@@ -1,0 +1,179 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 20% 97%;
+    --foreground: 230 25% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 230 25% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 230 25% 15%;
+
+    --primary: 170 80% 38%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 15% 93%;
+    --secondary-foreground: 230 20% 30%;
+
+    --muted: 220 15% 93%;
+    --muted-foreground: 220 10% 50%;
+
+    --accent: 38 90% 52%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --success: 160 65% 40%;
+    --success-foreground: 0 0% 100%;
+
+    --warning: 38 90% 52%;
+    --warning-foreground: 0 0% 100%;
+
+    --info: 210 90% 55%;
+    --info-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 170 80% 38%;
+
+    --radius: 0.625rem;
+
+    --sidebar-background: 220 20% 98%;
+    --sidebar-foreground: 220 10% 40%;
+    --sidebar-primary: 170 80% 38%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 15% 93%;
+    --sidebar-accent-foreground: 230 25% 15%;
+    --sidebar-border: 220 15% 90%;
+    --sidebar-ring: 170 80% 38%;
+
+    --font-sans: 'Inter', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --glow-primary: 0 0 24px hsl(170 80% 38% / 0.15);
+    --glow-accent: 0 0 24px hsl(38 90% 52% / 0.15);
+    --glow-destructive: 0 0 24px hsl(0 75% 55% / 0.15);
+    --glow-success: 0 0 24px hsl(160 65% 40% / 0.15);
+  }
+
+  .dark {
+    --background: 230 25% 8%;
+    --foreground: 220 20% 93%;
+
+    --card: 230 25% 11%;
+    --card-foreground: 220 20% 93%;
+
+    --popover: 230 25% 11%;
+    --popover-foreground: 220 20% 93%;
+
+    --primary: 170 90% 50%;
+    --primary-foreground: 230 25% 6%;
+
+    --secondary: 230 20% 18%;
+    --secondary-foreground: 220 20% 85%;
+
+    --muted: 230 20% 15%;
+    --muted-foreground: 220 15% 55%;
+
+    --accent: 38 100% 60%;
+    --accent-foreground: 230 25% 6%;
+
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 220 20% 98%;
+
+    --success: 160 70% 48%;
+    --success-foreground: 230 25% 6%;
+
+    --warning: 38 100% 60%;
+    --warning-foreground: 230 25% 6%;
+
+    --info: 210 100% 60%;
+    --info-foreground: 230 25% 6%;
+
+    --border: 230 20% 20%;
+    --input: 230 20% 20%;
+    --ring: 170 90% 50%;
+
+    --sidebar-background: 230 25% 6%;
+    --sidebar-foreground: 220 20% 70%;
+    --sidebar-primary: 170 90% 50%;
+    --sidebar-primary-foreground: 230 25% 6%;
+    --sidebar-accent: 230 20% 14%;
+    --sidebar-accent-foreground: 220 20% 93%;
+    --sidebar-border: 230 20% 16%;
+    --sidebar-ring: 170 90% 50%;
+
+    --glow-primary: 0 0 24px hsl(170 90% 50% / 0.2);
+    --glow-accent: 0 0 24px hsl(38 100% 60% / 0.2);
+    --glow-destructive: 0 0 24px hsl(0 85% 60% / 0.2);
+    --glow-success: 0 0 24px hsl(160 70% 48% / 0.2);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: var(--font-sans);
+  }
+}
+
+@layer utilities {
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+
+  .glow-primary {
+    box-shadow: var(--glow-primary);
+  }
+
+  .glow-accent {
+    box-shadow: var(--glow-accent);
+  }
+
+  .glow-destructive {
+    box-shadow: var(--glow-destructive);
+  }
+
+  .glow-success {
+    box-shadow: var(--glow-success);
+  }
+
+  .card-glass {
+    @apply bg-card border border-border rounded-lg shadow-sm;
+  }
+
+  .dark .card-glass {
+    background: linear-gradient(145deg, hsl(230 25% 12%), hsl(230 25% 9%));
+  }
+
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(170 80% 38%), hsl(170 80% 55%));
+  }
+
+  .dark .text-gradient-primary {
+    background-image: linear-gradient(135deg, hsl(170 90% 50%), hsl(170 90% 70%));
+  }
+
+  .scrollbar-thin::-webkit-scrollbar {
+    width: 4px;
+  }
+  .scrollbar-thin::-webkit-scrollbar-track {
+    background: hsl(var(--secondary));
+  }
+  .scrollbar-thin::-webkit-scrollbar-thumb {
+    background: hsl(var(--border));
+    border-radius: 2px;
+  }
+}
