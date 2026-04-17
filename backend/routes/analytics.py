@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from database import supabase
-from services.forecast import forecast   # 👈 THIS IMPORT
+from services.forecast import generate_forecast
 
 router = APIRouter()
 
@@ -16,7 +16,7 @@ def dashboard_data():
 def get_forecast():
     data = supabase.table("weekly_financials").select("*").execute().data  # 👈 NOT "your_table_name"
     
-    prediction = forecast(data)
+    prediction = generate_forecast(data)
     
     return {
         "next_week_prediction": prediction
